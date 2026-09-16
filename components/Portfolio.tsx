@@ -11,6 +11,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { experience, projects, skills } from "@/data/portfolio";
+import { profileImage } from "@/data/profileImage";
 
 const reveal = {
   initial: { opacity: 0, y: 28 },
@@ -88,7 +89,7 @@ export default function Portfolio() {
           >
             <div className="portrait-frame">
               <img
-                src="/profile.jpg?v=3"
+                src={profileImage}
                 alt="Oussama Moustarzik"
               />
               <div className="portrait-overlay" />
