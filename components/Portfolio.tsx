@@ -4,87 +4,277 @@ import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowUpRight,
-  BrainCircuit,
-  Code2,
   FileText,
   Github,
   Gitlab,
-  Layers3,
   Mail,
-  Network,
-  Sparkles,
-  TerminalSquare,
+  MapPin,
 } from "lucide-react";
 import { experience, projects, skills } from "@/data/portfolio";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
+const reveal = {
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.18 },
-  transition: { duration: 0.55, ease: "easeOut" },
+  transition: { duration: 0.65, ease: "easeOut" },
 };
+
+const featured = projects[0];
+const selected = projects.slice(1, 5);
 
 export default function Portfolio() {
   return (
-    <main>
-      <header className="nav-shell">
-        <nav className="nav wrap">
-          <a href="#top" className="brand" aria-label="Home">OM<span>.</span></a>
+    <main className="site-shell">
+      <header className="topbar">
+        <nav className="container nav">
+          <a href="#top" className="wordmark" aria-label="Oussama Moustarzik home">
+            Oussama<span>.</span>
+          </a>
           <div className="nav-links">
-            <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="/cv">CV</a><a href="#contact">Contact</a>
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#about">About</a>
+            <a href="/cv">CV</a>
           </div>
-          <a className="nav-cta" href="#contact">Let&apos;s talk <ArrowUpRight size={15} /></a>
+          <a className="nav-contact" href="mailto:oussamamoustarzik7@gmail.com">
+            Contact <ArrowUpRight size={15} />
+          </a>
         </nav>
       </header>
 
-      <section id="top" className="hero wrap">
-        <div className="ambient ambient-one" /><div className="ambient ambient-two" />
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="hero-copy">
-          <div className="eyebrow"><span className="status-dot" /> Available for selected opportunities</div>
-          <p className="kicker">SOFTWARE ENGINEER · AI ENGINEER</p>
-          <h1>I build intelligent systems that turn <span>complexity into products.</span></h1>
-          <p className="hero-text">I&apos;m <strong>Oussama Moustarzik</strong>, a software and AI engineer focused on scalable backend systems, AI-powered applications, RAG, intelligent automation and modern web products.</p>
-          <div className="hero-actions">
-            <a className="button primary" href="#projects">Explore my work <ArrowDown size={17} /></a>
-            <a className="button ghost" href="/cv" target="_blank" rel="noreferrer"><FileText size={17} /> View CV</a>
-            <a className="button ghost" href="#contact">Contact me <ArrowUpRight size={17} /></a>
-          </div>
-          <div className="social-row">
-            <a href="https://github.com/Epsilonzerr" target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
-            <a href="https://gitlab.com/OussamaMoustarzik" target="_blank" rel="noreferrer"><Gitlab size={18} /> GitLab</a>
-          </div>
-        </motion.div>
+      <section id="top" className="hero">
+        <div className="container hero-grid">
+          <motion.div
+            className="hero-copy"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="hero-status">
+              <span className="status-dot" /> Available for selected opportunities
+            </div>
+            <p className="hero-role">SOFTWARE & AI ENGINEER</p>
+            <h1>
+              I design intelligent systems that are built to <em>work in the real world.</em>
+            </h1>
+            <p className="hero-intro">
+              I&apos;m <strong>Oussama Moustarzik</strong>, an engineer focused on production AI,
+              scalable backend systems, RAG, automation and modern digital products.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-dark" href="#work">
+                View selected work <ArrowDown size={17} />
+              </a>
+              <a className="btn btn-light" href="/cv" target="_blank" rel="noreferrer">
+                <FileText size={17} /> View CV
+              </a>
+            </div>
+            <div className="hero-links">
+              <a href="https://github.com/Epsilonzerr" target="_blank" rel="noreferrer">
+                <Github size={17} /> GitHub
+              </a>
+              <a href="https://gitlab.com/OussamaMoustarzik" target="_blank" rel="noreferrer">
+                <Gitlab size={17} /> GitLab
+              </a>
+              <span><MapPin size={17} /> Casablanca, Morocco</span>
+            </div>
+          </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.08 }} className="hero-panel hero-profile-panel">
-          <div className="profile-photo-wrap">
-            <img className="profile-photo" src="https://raw.githubusercontent.com/Epsilonzerr/oussama-portfolio/main/public/profile.jpg" alt="Oussama Moustarzik" />
-            <div className="profile-photo-shade" />
-            <div className="profile-caption"><span>Oussama Moustarzik</span><small>Software & AI Engineer</small></div>
-          </div>
-          <div className="profile-code">
-            <div className="panel-top"><span /><span /><span /></div>
-            <div className="code-line"><span className="muted">01</span><span className="pink">const</span> engineer = &#123;</div>
-            <div className="code-line indent"><span className="muted">02</span>name: <span className="green">&quot;Oussama Moustarzik&quot;</span>,</div>
-            <div className="code-line indent"><span className="muted">03</span>focus: [<span className="green">&quot;AI&quot;</span>, <span className="green">&quot;Backend&quot;</span>, <span className="green">&quot;RAG&quot;</span>],</div>
-            <div className="code-line indent"><span className="muted">04</span>stack: [<span className="green">&quot;Python&quot;</span>, <span className="green">&quot;FastAPI&quot;</span>, <span className="green">&quot;Next.js&quot;</span>],</div>
-            <div className="code-line indent"><span className="muted">05</span>mindset: <span className="green">&quot;build → learn → improve&quot;</span>,</div>
-            <div className="code-line"><span className="muted">06</span>&#125;;</div>
-            <div className="terminal-card"><TerminalSquare size={19} /><div><small>CURRENT FOCUS</small><strong>Production AI systems & intelligent developer tools</strong></div></div>
-          </div>
-        </motion.div>
+          <motion.div
+            className="portrait-block"
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.75, delay: 0.08 }}
+          >
+            <div className="portrait-frame">
+              <img
+                src="https://raw.githubusercontent.com/Epsilonzerr/oussama-portfolio/main/public/profile.jpg"
+                alt="Oussama Moustarzik"
+              />
+              <div className="portrait-overlay" />
+              <div className="portrait-label">
+                <span>Production-minded engineer</span>
+                <small>AI · Backend · Systems</small>
+              </div>
+            </div>
+            <div className="portrait-note">
+              <span>Currently</span>
+              <p>Building production AI systems at Telexcel.</p>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
-      <section id="about" className="section wrap"><motion.div {...fadeUp}><div className="section-label">01 / ABOUT</div><div className="about-grid"><h2>Engineering beyond the prompt.</h2><div className="about-copy"><p>I enjoy building systems where <strong>software engineering and AI meet</strong>: robust APIs, reliable data flows, retrieval pipelines, autonomous workflows and clean user experiences.</p><p>My approach is product-oriented. I care about architecture, observability, maintainability and the quality of the final experience — not only whether a model can generate an answer.</p></div></div><div className="value-grid"><article><BrainCircuit /><h3>Applied AI</h3><p>LLMs, RAG, prompt systems, speech processing and intelligent workflows.</p></article><article><Layers3 /><h3>Backend systems</h3><p>APIs, databases, workers, queues, caching and production-oriented architecture.</p></article><article><Network /><h3>System design</h3><p>Microservices, GraphRAG, distributed components and end-to-end technical design.</p></article><article><Code2 /><h3>Product delivery</h3><p>From technical concept to usable interfaces, deployment and iteration.</p></article></div></motion.div></section>
+      <section className="signal-strip">
+        <div className="container signal-grid">
+          <div><span>01</span><strong>Production AI</strong><p>LLMs, speech, RAG and automated decision workflows.</p></div>
+          <div><span>02</span><strong>Backend engineering</strong><p>FastAPI, distributed workers, databases and cloud infrastructure.</p></div>
+          <div><span>03</span><strong>Private GitLab activity</strong><p>Most professional code lives in private repositories; GitHub showcases selected public work.</p></div>
+        </div>
+      </section>
 
-      <section className="section skills-section wrap"><motion.div {...fadeUp}><div className="section-label">02 / TOOLBOX</div><h2 className="medium-heading">Technologies I work with.</h2><div className="skills">{skills.map((skill) => <span key={skill}>{skill}</span>)}</div></motion.div></section>
+      <section id="work" className="work-section">
+        <div className="container">
+          <motion.div {...reveal} className="section-head section-head-light">
+            <div>
+              <p className="section-kicker">SELECTED WORK</p>
+              <h2>Projects where architecture and AI meet.</h2>
+            </div>
+            <p>
+              I prefer showing the problem, the system and the engineering choices — not just screenshots.
+            </p>
+          </motion.div>
 
-      <section id="projects" className="section wrap"><motion.div {...fadeUp}><div className="section-label">03 / SELECTED WORK</div><div className="section-heading-row"><h2 className="medium-heading">Projects with real technical depth.</h2><p>AI systems, developer tooling, automation and distributed software.</p></div></motion.div><div className="project-list">{projects.map((project, index) => (<motion.article key={project.name} {...fadeUp} className="project-card"><div className="project-index">0{index + 1}</div><div className="project-main"><div className="project-meta"><span>{project.label}</span>{project.privateProject && <span>Private / Case study</span>}</div><h3>{project.name}</h3><p>{project.description}</p><div className="highlights">{project.highlights.map((item) => <span key={item}>{item}</span>)}</div><div className="project-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div><a className="project-link" href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"><ArrowUpRight size={22} /></a></motion.article>))}</div></section>
+          <motion.article {...reveal} className="featured-project">
+            <div className="featured-copy">
+              <div className="project-eyebrow">
+                <span>01</span>
+                <span>{featured.label}</span>
+                <span>Private production project</span>
+              </div>
+              <h3>{featured.name}</h3>
+              <p className="featured-description">{featured.description}</p>
+              <div className="feature-points">
+                {featured.highlights.map((item) => <span key={item}>{item}</span>)}
+              </div>
+              <div className="tech-line">
+                {featured.stack.map((item) => <span key={item}>{item}</span>)}
+              </div>
+            </div>
 
-      <section id="experience" className="section wrap"><motion.div {...fadeUp}><div className="section-label">04 / EXPERIENCE</div><h2 className="medium-heading">Building, learning, shipping.</h2><div className="timeline">{experience.map((item) => (<article key={item.role}><div className="period">{item.period}</div><div><h3>{item.role}</h3><span className="company">{item.company}</span><p>{item.description}</p></div></article>))}</div></motion.div></section>
+            <div className="featured-visual" aria-label="CallQualify system overview">
+              <div className="visual-header">
+                <span>CallQualify</span>
+                <small>AI qualification pipeline</small>
+              </div>
+              <div className="system-flow">
+                <div><small>01</small><strong>Audio</strong><span>Call ingestion</span></div>
+                <i>→</i>
+                <div><small>02</small><strong>Speech</strong><span>Transcription</span></div>
+                <i>→</i>
+                <div><small>03</small><strong>AI</strong><span>Structured analysis</span></div>
+                <i>→</i>
+                <div><small>04</small><strong>Decision</strong><span>Qualification</span></div>
+              </div>
+              <div className="visual-footer">
+                <span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>AWS</span>
+              </div>
+            </div>
+          </motion.article>
 
-      <section id="contact" className="contact-section wrap"><motion.div {...fadeUp} className="contact-card"><div className="contact-icon"><Sparkles size={23} /></div><p className="section-label">05 / CONTACT</p><h2>Have an ambitious project?<br /><span>Let&apos;s build it.</span></h2><p className="contact-text">I&apos;m open to software engineering, AI engineering and selected freelance opportunities.</p><div className="contact-actions"><a className="button primary" href="mailto:"><Mail size={17} /> Email me</a><a className="button ghost" href="/cv" target="_blank" rel="noreferrer"><FileText size={17} /> View CV</a><a className="button ghost" href="https://github.com/Epsilonzerr" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a><a className="button ghost" href="https://gitlab.com/OussamaMoustarzik" target="_blank" rel="noreferrer"><Gitlab size={17} /> GitLab</a></div><p className="contact-note">Professional work is primarily carried out in private GitLab repositories; GitHub contains selected public projects.</p></motion.div></section>
+          <div className="project-rows">
+            {selected.map((project, index) => (
+              <motion.article {...reveal} className="project-row" key={project.name}>
+                <div className="row-number">0{index + 2}</div>
+                <div className="row-title">
+                  <span>{project.label}</span>
+                  <h3>{project.name}</h3>
+                </div>
+                <p>{project.description}</p>
+                <div className="row-tech">{project.stack.slice(0, 4).map((item) => <span key={item}>{item}</span>)}</div>
+                <a
+                  className="row-link"
+                  href={project.href}
+                  target={project.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  aria-label={`Open ${project.name}`}
+                >
+                  <ArrowUpRight size={20} />
+                </a>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <footer className="footer wrap"><span>© 2026 Oussama Moustarzik</span><span>Software · AI · Systems</span></footer>
+      <section id="about" className="about-section">
+        <div className="container about-layout">
+          <motion.div {...reveal} className="about-title">
+            <p className="section-kicker dark">ABOUT</p>
+            <h2>Engineering beyond the demo.</h2>
+          </motion.div>
+          <motion.div {...reveal} className="about-body">
+            <p className="about-lead">
+              I like AI when it becomes part of a reliable product — connected to real data,
+              real workflows and clear business outcomes.
+            </p>
+            <p>
+              My work sits between software engineering and applied AI: APIs, databases, background workers,
+              retrieval systems, intelligent automation and the interfaces that make them useful.
+            </p>
+            <p>
+              I care about maintainability, system design, observability and shipping end-to-end solutions.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="container principles">
+          <motion.div {...reveal}><span>01</span><h3>Design the system</h3><p>Start with architecture, data flow and failure modes before adding complexity.</p></motion.div>
+          <motion.div {...reveal}><span>02</span><h3>Make AI measurable</h3><p>Structured outputs, evaluation loops and production feedback matter more than demos.</p></motion.div>
+          <motion.div {...reveal}><span>03</span><h3>Ship useful products</h3><p>Backend, AI and interface should feel like one coherent product.</p></motion.div>
+        </div>
+      </section>
+
+      <section id="experience" className="experience-section">
+        <div className="container">
+          <motion.div {...reveal} className="section-head compact">
+            <div><p className="section-kicker dark">EXPERIENCE</p><h2>Where I&apos;ve been building.</h2></div>
+          </motion.div>
+
+          <div className="experience-list">
+            {experience.map((item, index) => (
+              <motion.article {...reveal} key={item.role}>
+                <div className="exp-index">0{index + 1}</div>
+                <div className="exp-period">{item.period}</div>
+                <div className="exp-main">
+                  <h3>{item.role}</h3>
+                  <span>{item.company}</span>
+                  <p>{item.description}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="toolbox-section">
+        <div className="container toolbox-layout">
+          <motion.div {...reveal}>
+            <p className="section-kicker">TOOLBOX</p>
+            <h2>Technologies I use to build.</h2>
+          </motion.div>
+          <motion.div {...reveal} className="skill-cloud">
+            {skills.map((skill) => <span key={skill}>{skill}</span>)}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="contact" className="contact-section-new">
+        <div className="container contact-layout">
+          <motion.div {...reveal}>
+            <p className="section-kicker">CONTACT</p>
+            <h2>Have something worth building?</h2>
+            <p>Open to software engineering, AI engineering and selected freelance opportunities.</p>
+          </motion.div>
+          <motion.div {...reveal} className="contact-actions-new">
+            <a href="mailto:oussamamoustarzik7@gmail.com" className="contact-primary">
+              <Mail size={19} /> oussamamoustarzik7@gmail.com <ArrowUpRight size={18} />
+            </a>
+            <div className="contact-secondary">
+              <a href="https://github.com/Epsilonzerr" target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
+              <a href="https://gitlab.com/OussamaMoustarzik" target="_blank" rel="noreferrer"><Gitlab size={18} /> GitLab</a>
+              <a href="/cv" target="_blank" rel="noreferrer"><FileText size={18} /> CV</a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <footer className="footer-new">
+        <div className="container">
+          <span>© 2026 Oussama Moustarzik</span>
+          <span>Software · AI · Systems</span>
+        </div>
+      </footer>
     </main>
   );
 }
