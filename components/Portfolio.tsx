@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   BrainCircuit,
   Code2,
+  FileText,
   Github,
   Gitlab,
   Layers3,
@@ -35,6 +36,7 @@ export default function Portfolio() {
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="/cv">CV</a>
             <a href="#contact">Contact</a>
           </div>
           <a className="nav-cta" href="#contact">
@@ -63,6 +65,7 @@ export default function Portfolio() {
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#projects">Explore my work <ArrowDown size={17} /></a>
+            <a className="button ghost" href="/cv" target="_blank" rel="noreferrer"><FileText size={17} /> View CV</a>
             <a className="button ghost" href="#contact">Contact me <ArrowUpRight size={17} /></a>
           </div>
           <div className="social-row">
@@ -175,10 +178,11 @@ export default function Portfolio() {
           <p className="contact-text">I&apos;m open to software engineering, AI engineering and selected freelance opportunities.</p>
           <div className="contact-actions">
             <a className="button primary" href="mailto:"><Mail size={17} /> Email me</a>
+            <a className="button ghost" href="/cv" target="_blank" rel="noreferrer"><FileText size={17} /> View CV</a>
             <a className="button ghost" href="https://github.com/Epsilonzerr" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a>
             <a className="button ghost" href="https://gitlab.com/OussamaMoustarzik" target="_blank" rel="noreferrer"><Gitlab size={17} /> GitLab</a>
           </div>
-          <p className="contact-note">Add your professional email and LinkedIn URL in the project before deployment.</p>
+          <p className="contact-note">Professional work is primarily carried out in private GitLab repositories; GitHub contains selected public projects.</p>
         </motion.div>
       </section>
 
