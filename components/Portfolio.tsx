@@ -57,7 +57,7 @@ export default function Portfolio() {
 
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.08 }} className="hero-panel hero-profile-panel">
           <div className="profile-photo-wrap">
-            <img className="profile-photo" src="/profile.jpg" alt="Oussama Moustarzik" />
+            <img className="profile-photo" src="https://raw.githubusercontent.com/Epsilonzerr/oussama-portfolio/main/public/profile.jpg" alt="Oussama Moustarzik" />
             <div className="profile-photo-shade" />
             <div className="profile-caption"><span>Oussama Moustarzik</span><small>Software & AI Engineer</small></div>
           </div>
