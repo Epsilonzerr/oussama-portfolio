@@ -88,7 +88,7 @@ export default function Portfolio() {
           >
             <div className="portrait-frame">
               <img
-                src="https://raw.githubusercontent.com/Epsilonzerr/oussama-portfolio/main/public/profile.jpg"
+                src="/profile.jpg?v=3"
                 alt="Oussama Moustarzik"
               />
               <div className="portrait-overlay" />
