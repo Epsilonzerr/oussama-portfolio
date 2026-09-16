@@ -1,7 +1,4 @@
-export const metadata = {
-  title: "CV | Oussama Moustarzik",
-  description: "Curriculum vitae of Oussama Moustarzik, Software & AI Engineer.",
-};
+"use client";
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
   <h2 style={{ fontSize: 18, margin: "28px 0 12px", letterSpacing: "-0.02em" }}>{children}</h2>
