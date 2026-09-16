@@ -1,1 +1,1 @@
-export const profileImage = "/profile.png";
+export const profileImage = "/profile-final.webp?v=1";
